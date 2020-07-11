@@ -10,13 +10,13 @@ btnPrev.onclick = () => {
 
   let currentOpacity = 1;
 
-  let timerId = setInterval(() => {
+  let intervalId = setInterval(() => {
     sliderImage.style.opacity = currentOpacity.toString();
     if (currentOpacity <= 0) {
-      clearInterval(timerId);
+      clearInterval(intervalId);
     }
     currentOpacity -= 0.01;
-  }, 10);
+  }, 5);
 
   setTimeout(() => {
     if (indexOfCurrent === 0) {
@@ -24,14 +24,14 @@ btnPrev.onclick = () => {
     } else {
       sliderImage.setAttribute("src", `assets/img/${imageArray[indexOfCurrent - 1]}`);
     }
-    let timerId = setInterval(() => {
+    let intervalId = setInterval(() => {
       sliderImage.style.opacity = currentOpacity.toString();
       if (currentOpacity >= 1) {
-        clearInterval(timerId);
+        clearInterval(intervalId);
       }
       currentOpacity += 0.01;
-    }, 10);
-  }, 1000)
+    }, 5);
+  }, 500)
 }
 
 btnNext.onclick = () => {
@@ -47,7 +47,7 @@ btnNext.onclick = () => {
       clearInterval(timerId);
     }
     currentOpacity -= 0.01;
-  }, 10);
+  }, 5);
 
   setTimeout(() => {
     if (indexOfCurrent === imageArray.length - 1) {
@@ -61,8 +61,8 @@ btnNext.onclick = () => {
         clearInterval(timerId);
       }
       currentOpacity += 0.01;
-    }, 10);
-  }, 1000)
+    }, 5);
+  }, 500)
 }
 
 function pageReady() {
